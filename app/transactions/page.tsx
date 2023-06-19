@@ -122,7 +122,7 @@ export default function Transactions(){
        <Table.Body items={transactions || []}>
           {(item) => (
             <Table.Row key={item.id}>
-              {(columnKey) => <Table.Cell >{item[columnKey]}</Table.Cell>}
+              {(columnKey) => <Table.Cell css={{zIndex: 0}}>{item[columnKey]}</Table.Cell>}
             </Table.Row>
           )}
         </Table.Body>
