@@ -47,7 +47,13 @@ export default function Connections(){
   const handleClick = () => {
     vezgo.connect().onConnection(async (account: any) => {
       console.log('Connection successful', account)
-      window.location.reload();
+      fetch('/api/vezgo/accounts', {
+        method: 'POST',
+        headers: {
+          accountId: account
+        }
+      }).then((res) => res.json())
+      .then(() => window.location.reload());
     })
     .onError((error: any) => {
       console.error('Connection error', error)
