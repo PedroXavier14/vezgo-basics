@@ -14,6 +14,7 @@ interface AccountType {
   key: string,
   id: string,
   name: string,
+  ticker: string;
   logo: string,
   fiat_ticker: string,
   fiat_value: string,
@@ -63,6 +64,9 @@ export default function Connections(){
       .then(res => res.json())
       .then((response) => {
         console.log(response);
+        window.location.reload();
+      }).catch(() => {
+        window.location.reload();
       })
   }
 
@@ -92,7 +96,7 @@ export default function Connections(){
       case "name":
         return (
           <User squared src={account.logo} name={cellValue} css={{ p: 0 }}>
-            {account.name}
+            {account.ticker}
           </User>
         );
       case "actions": 

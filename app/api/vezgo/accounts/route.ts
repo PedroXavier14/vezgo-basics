@@ -23,15 +23,14 @@ export async function GET() {
         },
       });
       const accounts = await response.json();
-      const accountsToReturn = accounts.map((account: any, index: number) => ({
-        key: (index++).toString(),
+      const accountsToReturn = accounts.map((account: any) => ({
         id: account.id,
         name: account.provider.name,
         logo: account.provider.logo,
         fiat_ticker: account.fiat_ticker,
         fiat_value: account.fiat_value,
+        ticker: account.balances ? account.balances[0].ticker : "",
       }));
-
       return NextResponse.json({
         accountsToReturn,
       });
@@ -63,7 +62,6 @@ export async function DELETE() {
         },
       }
     );
-    console.log(response);
     const account = await response.json();
     if (account) {
       return NextResponse.json({
