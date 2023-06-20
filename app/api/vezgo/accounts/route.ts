@@ -30,6 +30,7 @@ export async function GET() {
         fiat_ticker: account.fiat_ticker,
         fiat_value: account.fiat_value,
         ticker: account.balances ? account.balances[0].ticker : "",
+        address: account.wallets ? account.wallets[0].address : "",
       }));
       return NextResponse.json({
         accountsToReturn,

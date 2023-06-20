@@ -53,7 +53,8 @@ export default function Connections(){
           accountId: account
         }
       }).then((res) => res.json())
-      .then(() => window.location.reload());
+      .then(() => window.location.reload())
+      .catch(() => window.location.reload());
     })
     .onError((error: any) => {
       console.error('Connection error', error)
@@ -68,8 +69,7 @@ export default function Connections(){
       }
     })
       .then(res => res.json())
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         window.location.reload();
       }).catch(() => {
         window.location.reload();
@@ -80,6 +80,10 @@ export default function Connections(){
     {
       uid: "id",
       name: "ID"
+    },
+    {
+      uid: "address",
+      name: "Address"
     },
     {
       uid: "name",
