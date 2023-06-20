@@ -82,21 +82,46 @@ export const transactionToMap = (trans: Transaction): TransactionToMap => {
     transactionType: trans.transaction_type,
     transactionHash: trans.transaction_hash,
     initiatedAt: trans.initiated_at,
-    direction: trans.parts ? trans.parts[0].direction : "N/A",
-    ticker: trans.parts ? trans.parts[0].ticker : "N/A",
-    providerTicker: trans.parts ? trans.parts[0].provider_ticker : "N/A",
-    tickerAddress: trans.parts ? trans.parts[0].ticker_address : "N/A",
-    amount: trans.parts ? trans.parts[0].amount : null,
-    fiatValue: trans.parts ? trans.parts[0].fiat_value : "N/A",
-    fiatTicker: trans.parts ? trans.parts[0].fiat_ticker : "N/A",
-    toAddress: trans.parts ? trans.parts[0].to_address : "N/A",
-    fromAddress: trans.parts ? trans.parts[0].from_address : "N/A",
-    otherParties: trans.parts ? trans.parts[0].other_parties : [],
-    feeTicker: trans.fees ? trans.fees[0].fiat_ticker : "N/A",
-    feeProviderTicker: trans.fees ? trans.fees[0].provider_ticker : "N/A",
-    feeAmount: trans.fees ? trans.fees[0].amount : "N/A",
-    feeFiatValue: trans.fees ? trans.fees[0].fiat_value : "N/A",
-    feeFiatTicker: trans.fees ? trans.fees[0].fiat_ticker : "N/A",
+    direction:
+      trans.parts && trans.parts.length > 0 ? trans.parts[0].direction : "N/A",
+    ticker:
+      trans.parts && trans.parts.length > 0 ? trans.parts[0].ticker : "N/A",
+    providerTicker:
+      trans.parts && trans.parts.length > 0
+        ? trans.parts[0].provider_ticker
+        : "N/A",
+    tickerAddress:
+      trans.parts && trans.parts.length > 0
+        ? trans.parts[0].ticker_address
+        : "N/A",
+    amount:
+      trans.parts && trans.parts.length > 0 ? trans.parts[0].amount : null,
+    fiatValue:
+      trans.parts && trans.parts.length > 0 ? trans.parts[0].fiat_value : "N/A",
+    fiatTicker:
+      trans.parts && trans.parts.length > 0
+        ? trans.parts[0].fiat_ticker
+        : "N/A",
+    toAddress:
+      trans.parts && trans.parts.length > 0 ? trans.parts[0].to_address : "N/A",
+    fromAddress:
+      trans.parts && trans.parts.length > 0
+        ? trans.parts[0].from_address
+        : "N/A",
+    otherParties:
+      trans.parts && trans.parts.length > 0 ? trans.parts[0].other_parties : [],
+    feeTicker:
+      trans.fees && trans.fees.length > 0 ? trans.fees[0].ticker : "N/A",
+    feeProviderTicker:
+      trans.fees && trans.fees.length > 0
+        ? trans.fees[0].provider_ticker
+        : "N/A",
+    feeAmount:
+      trans.fees && trans.fees.length > 0 ? trans.fees[0].amount : "N/A",
+    feeFiatValue:
+      trans.fees && trans.fees.length > 0 ? trans.fees[0].fiat_value : "N/A",
+    feeFiatTicker:
+      trans.fees && trans.fees.length > 0 ? trans.fees[0].fiat_ticker : "N/A",
   };
 
   return transaction;
