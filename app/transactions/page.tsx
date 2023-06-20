@@ -63,12 +63,12 @@ export default function Transactions(){
       name: "Fiat Ticker"
     },
     {
-      uid: "toAddress",
-      name: "To Address"
-    },
-    {
       uid: "fromAddress",
       name: "From Address"
+    },
+    {
+      uid: "toAddress",
+      name: "To Address"
     },
     // {
     //   uid: "otherParties",
