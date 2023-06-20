@@ -57,7 +57,7 @@ export interface TransactionToMap {
   id: string;
   transactionType: string;
   transactionHash: string;
-  initiatedAt: number;
+  initiatedAt: string;
   direction: string;
   ticker: string;
   providerTicker: string;
@@ -81,7 +81,7 @@ export const transactionToMap = (trans: Transaction): TransactionToMap => {
     id: trans.id,
     transactionType: trans.transaction_type,
     transactionHash: trans.transaction_hash,
-    initiatedAt: trans.initiated_at,
+    initiatedAt: new Date(trans.initiated_at),
     direction:
       trans.parts && trans.parts.length > 0 ? trans.parts[0].direction : "N/A",
     ticker:
