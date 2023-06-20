@@ -57,7 +57,7 @@ export interface TransactionToMap {
   id: string;
   transactionType: string;
   transactionHash: string;
-  initiatedAt: string;
+  initiatedAt: Date;
   direction: string;
   ticker: string;
   providerTicker: string;
